@@ -14,8 +14,11 @@ namespace TestVirtualWebHost
 {
     public class AppHost : AppHostBase
     {
-        public AppHost()
-            : base("Virtual WebHost Admin UI", typeof(AutoQueryServices).Assembly) { }
+        public AppHost() : base("Virtual WebHost Admin UI", typeof(AutoQueryServices).Assembly)
+        {
+            Config.HandlerFactoryPath = "api";
+            Config.WebHostUrl = "http://localhost/TestVirtual.WebHost/api";
+        }
 
         public override void Configure(Container container)
         {
@@ -28,11 +31,6 @@ namespace TestVirtualWebHost
             });
 
             Plugins.Add(new AdminFeature());
-
-            SetConfig(new HostConfig {
-                HandlerFactoryPath = "api",
-                WebHostUrl = "http://localhost/TestVirtual.WebHost/api",
-            });
         }
     }
 

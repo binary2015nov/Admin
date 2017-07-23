@@ -7,7 +7,7 @@ namespace ServiceStack.Admin
     {
         public void Configure(IAppHost appHost)
         {
-            appHost.Config.EmbeddedResourceBaseTypes.Add(typeof(AdminFeature));
+            appHost.Config.EmbeddedResourceSources.Add(typeof(AdminFeature).GetAssembly());
         }
 
         public void Register(IAppHost appHost)
@@ -25,7 +25,7 @@ namespace ServiceStack.Admin
                     : null);
 
             appHost.GetPlugin<MetadataFeature>()
-                .AddPluginLink("ss_admin/autoquery/", "AutoQuery Viewer");
+                .AddLink(MetadataFeature.PluginLinks, "ss_admin/autoquery/", "AutoQuery Viewer");
         }
     }
 }
