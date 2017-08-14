@@ -98,8 +98,7 @@ namespace Admin.Tasks
 
         public T GetJson<T>(string route, params object[] routeArgs)
         {
-            return GithubApiBaseUrl.CombineWith(route.Fmt(routeArgs))
-                .GetJsonFromUrl(RequestFilter)
+            return HttpUtils .GetJsonFromUrl(GithubApiBaseUrl.AppendPath(route.Fmt(routeArgs)), requestFilter: RequestFilter)
                 .FromJson<T>();
         }
 
@@ -110,9 +109,8 @@ namespace Admin.Tasks
 
             do
             {
-                results = nextUrl
-                    .GetJsonFromUrl(
-                        RequestFilter,
+                results = HttpUtils.GetJsonFromUrl(nextUrl,
+                        requestFilter: RequestFilter,
                         responseFilter: res => {
                             var links = ParseLinkUrls(res.Headers["Link"]);
                             links.TryGetValue("next", out nextUrl);
