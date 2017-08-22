@@ -103,6 +103,7 @@ namespace Admin.Tasks
     public class ConfigScope : IDisposable
     {
         private readonly WriteComplexTypeDelegate holdQsStrategy;
+
         private readonly JsConfigScope scope;
 
         public ConfigScope()
