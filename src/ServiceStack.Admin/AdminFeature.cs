@@ -7,7 +7,7 @@ namespace ServiceStack.Admin
     {
         public void Configure(IAppHost appHost)
         {
-            appHost.Config.EmbeddedResourceSources.Add(typeof(AdminFeature).GetAssembly());
+            appHost.Config.EmbeddedResourceSources.Add(GetType().GetAssembly());
         }
 
         public void Register(IAppHost appHost)
