@@ -5,7 +5,7 @@ REM %MSBUILD% build.proj /target:TeamCityBuild;NuGetPack /property:Configuration
 REM %MSBUILD% build-sn.proj /target:NuGetPack /property:Configuration=Signed;PatchVersion=9
 REM exit
 
-CD ..\src\ServiceStack.Admin.Web
+PUSHD ..\src\ServiceStack.Admin.Web
 
 COPY GitHubQuery.cs ..\..\tests\TestSelfHost
 COPY GitHubQuery.cs ..\..\tests\TestWebHost
