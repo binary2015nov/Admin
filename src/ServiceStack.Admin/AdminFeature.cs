@@ -26,6 +26,8 @@ namespace ServiceStack.Admin
 
             appHost.GetPlugin<MetadataFeature>()
                 ?.AddLink(MetadataFeature.PluginLinks, "ss_admin/autoquery/", "AutoQuery Viewer");
+            appHost.GetPlugin<MetadataFeature>()
+                ?.AddLink(MetadataFeature.AvailableFeatures, "https://github.com/ServiceStack/Admin", nameof(AdminFeature));
         }
     }
 }
