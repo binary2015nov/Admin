@@ -8,8 +8,7 @@ namespace ServiceStack.Admin.Web
 {
     public class AppHost : AppHostBase
     {
-        public AppHost()
-            : base("Admin UI", typeof(AutoQueryServices).Assembly) { }
+        public AppHost() : base("Admin UI", typeof(AutoQueryServices).Assembly) { }
 
         public override void Configure(Container container)
         {
